@@ -7,7 +7,7 @@ import org.json.JSONObject
 class QuizRepository(private val context: Context) {
 
     private val questions: List<Question> = loadQuestions()
-    private val allAnswers: List<String> = questions.map {it.correctAnswer}
+    private val allAnswers: List<String> = questions.map {it.correctAnswer}.distinct()
 
     fun loadQuestions(): List<Question> {
         val json = context.assets.open("questions.json")
