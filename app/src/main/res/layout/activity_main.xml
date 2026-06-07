@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Witaj w Quizie! Sprawdź swoją wiedzę, odpowiadając na pytania. Wybierz poprawną odpowiedź spośród dostępnych opcji. Powodzenia!"
+        android:text="Witaj w Quizie! Sprawdź swoją wiedzę, odpowiadając na pytania. Powodzenia!"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/btnStart"
         app:layout_constraintEnd_toEndOf="parent"

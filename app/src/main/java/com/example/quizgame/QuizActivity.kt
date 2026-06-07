@@ -1,42 +1,43 @@
 package com.example.quizgame
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.example.quizgame.databinding.ActivityQuizBinding
 
 class QuizActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityQuizBinding
     private lateinit var repository: QuizRepository
     private lateinit var questionsList: List<Question>
 
     private var currentQuestionIndex = 0
     private var score = 0
-    
-    private lateinit var tvQuestion: TextView
-    private lateinit var tvProgress: TextView
-    private lateinit var btnAnswer1: Button
-    private lateinit var btnAnswer2: Button
-    private lateinit var btnAnswer3: Button
-    private lateinit var btnAnswer4: Button
+    private var totalQuestionsToAsk = 10
+
     private lateinit var answerButtons: List<Button>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz)
+        binding = ActivityQuizBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        totalQuestionsToAsk = intent.getIntExtra("QUESTION_COUNT", 10)
 
         repository = QuizRepository(this)
-        questionsList = repository.loadQuestions().shuffled()
+        val allQuestions = repository.loadQuestions().shuffled()
+        questionsList = allQuestions.take(totalQuestionsToAsk)
 
-        tvQuestion = findViewById(R.id.tvQuestion)
-        tvProgress = findViewById(R.id.tvProgress)
-        btnAnswer1 = findViewById(R.id.btnAnswer1)
-        btnAnswer2 = findViewById(R.id.btnAnswer2)
-        btnAnswer3 = findViewById(R.id.btnAnswer3)
-        btnAnswer4 = findViewById(R.id.btnAnswer4)
-
-        answerButtons = listOf(btnAnswer1, btnAnswer2, btnAnswer3, btnAnswer4)
+        answerButtons = listOf(
+            binding.btnAnswer1,
+            binding.btnAnswer2,
+            binding.btnAnswer3,
+            binding.btnAnswer4
+        )
 
         displayQuestion()
     }
@@ -48,31 +49,51 @@ class QuizActivity : AppCompatActivity() {
         }
 
         val currentQuestion = questionsList[currentQuestionIndex]
-        tvProgress.text = "Pytanie: ${currentQuestionIndex + 1} / ${questionsList.size}"
-        tvQuestion.text = currentQuestion.question
+        binding.tvProgress.text = "Pytanie: ${currentQuestionIndex + 1} / ${questionsList.size}"
+        binding.tvQuestion.text = currentQuestion.question
 
         val generatedAnswers = repository.generateAnswersForQuestion(currentQuestion)
 
         for (i in answerButtons.indices) {
+            val button = answerButtons[i]
             val answerText = generatedAnswers[i]
-            answerButtons[i].text = answerText
+            
+            button.text = answerText
+            button.isEnabled = true
+            // Reset to default color (using a common color or null to revert to theme)
+            button.setBackgroundColor(ContextCompat.getColor(this, R.color.black)) 
+            button.setTextColor(Color.WHITE)
 
-            answerButtons[i].setOnClickListener {
-                checkAnswer(answerText, currentQuestion.correctAnswer)
+            button.setOnClickListener {
+                checkAnswer(button, answerText, currentQuestion.correctAnswer)
             }
         }
     }
 
-    private fun checkAnswer(selectedAnswer: String, correctAnswer: String) {
-        if (selectedAnswer == correctAnswer) {
+    private fun checkAnswer(selectedButton: Button, selectedAnswer: String, correctAnswer: String) {
+        // Disable all buttons to prevent multiple clicks
+        answerButtons.forEach { it.isEnabled = false }
+
+        val isCorrect = selectedAnswer == correctAnswer
+
+        if (isCorrect) {
             score++
-            Toast.makeText(this, "Poprawna odpowiedź!", Toast.LENGTH_SHORT).show()
+            selectedButton.setBackgroundColor(ContextCompat.getColor(this, R.color.green))
         } else {
-            Toast.makeText(this, "Błąd! Prawidłowo: $correctAnswer", Toast.LENGTH_SHORT).show()
+            selectedButton.setBackgroundColor(ContextCompat.getColor(this, R.color.red))
+            // Highlight the correct answer
+            answerButtons.forEach { button ->
+                if (button.text == correctAnswer) {
+                    button.setBackgroundColor(ContextCompat.getColor(this, R.color.green))
+                }
+            }
         }
 
-        currentQuestionIndex++
-        displayQuestion()
+        // Wait 3 seconds before next question
+        Handler(Looper.getMainLooper()).postDelayed({
+            currentQuestionIndex++
+            displayQuestion()
+        }, 3000)
     }
 
     private fun endQuiz() {
