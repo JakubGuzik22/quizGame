@@ -1,6 +1,6 @@
 package com.example.quizgame
 
-data class Question(private val question: String, private val correctAnswer: String) {
+data class Question(public val question: String, public val correctAnswer: String) {
 //    val question: String
 //    val correctAnswer: String
 //
