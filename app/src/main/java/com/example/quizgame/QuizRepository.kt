@@ -2,10 +2,14 @@ package com.example.quizgame
 
 import android.content.Context
 import org.json.JSONArray
+import org.json.JSONObject
 
 class QuizRepository(private val context: Context) {
 
-    fun loadQuestions(): List<Pair<Question, List<String>>> {
+    private val questions: List<Question> = loadQuestions()
+    private val allAnswers: List<String> = questions.map {it.correctAnswer}
+
+    fun loadQuestions(): List<Question> {
         val json = context.assets.open("questions.json")
             .bufferedReader()
             .use { it.readText() }
@@ -14,29 +18,30 @@ class QuizRepository(private val context: Context) {
         val questions = mutableListOf<Question>()
 
         for (i in 0 until jsonArray.length()) {
-            val obj = jsonArray.getJSONObject(i)
-            questions.add(
-                Question(
-                    question = obj.getString("question"),
-                    correctAnswer = obj.getString("correctAnswer")
-                )
-            )
+            val obj: JSONObject = jsonArray.getJSONObject(i)
+
+            val question = obj.getString("question")
+            val correctAnswer = obj.getString("correctAnswer")
+
+            questions.add(Question(question, correctAnswer))
         }
-
-        val shuffledQuestions = questions.shuffled()
-        val allAnswers = shuffledQuestions.map { it.correctAnswer }
-
-        // Dla każdego pytania losujemy 3 błędne odpowiedzi z pozostałych
-        return shuffledQuestions.map { current ->
-            val wrongAnswers = allAnswers
-                .filter { it != current.correctAnswer }
-                .shuffled()
-                .take(3)
-
-            // Mieszamy poprawną z błędnymi, żeby nie była zawsze na tej samej pozycji
-            val options = (wrongAnswers + current.correctAnswer).shuffled()
-
-            Pair(current, options)
-        }
+        return questions
     }
+
+    fun generateAnswersForQuestion(currentQuestion: Question): List<String> {
+        val answers = mutableListOf<String>()
+        answers.add(currentQuestion.correctAnswer)
+
+        val wrongAnswersPool = allAnswers.filter { it != currentQuestion.correctAnswer }.shuffled()
+
+        for (answer in wrongAnswersPool) {
+            if (answers.size < 4){
+                answers.add(answer)
+            } else {
+                break
+            }
+        }
+        return answers.toList().shuffled()
+    }
+
 }
