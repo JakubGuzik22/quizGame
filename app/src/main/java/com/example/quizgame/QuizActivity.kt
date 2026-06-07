@@ -1,20 +1,97 @@
 package com.example.quizgame
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class QuizActivity : AppCompatActivity() {
+    private lateinit var repository: QuizRepository
+    private lateinit var questionsList: List<Question>
+
+    private var currentQuestionIndex = 0
+    private var score = 0
+
+    // Elementy interfejsu
+    private lateinit var tvQuestion: TextView
+    private lateinit var tvProgress: TextView
+    private lateinit var btnAnswer1: Button
+    private lateinit var btnAnswer2: Button
+    private lateinit var btnAnswer3: Button
+    private lateinit var btnAnswer4: Button
+    private lateinit var answerButtons: List<Button>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_quiz)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        // Inicjalizacja repozytorium i pobranie wymieszanych pytań
+        repository = QuizRepository(this)
+        questionsList = repository.loadQuestions().shuffled()
+
+        // Powiązanie widoków z XML
+        tvQuestion = findViewById(R.id.tvQuestion)
+        tvProgress = findViewById(R.id.tvProgress)
+        btnAnswer1 = findViewById(R.id.btnAnswer1)
+        btnAnswer2 = findViewById(R.id.btnAnswer2)
+        btnAnswer3 = findViewById(R.id.btnAnswer3)
+        btnAnswer4 = findViewById(R.id.btnAnswer4)
+
+        // Grupowanie przycisków w listę dla łatwiejszej obsługi pętlą
+        answerButtons = listOf(btnAnswer1, btnAnswer2, btnAnswer3, btnAnswer4)
+
+        // Wyświetlenie pierwszego pytania
+        displayQuestion()
+    }
+
+    private fun displayQuestion() {
+        // Sprawdzenie, czy to już koniec pytań
+        if (currentQuestionIndex >= questionsList.size) {
+            endQuiz()
+            return
         }
+
+        // Aktualne pytanie i postęp
+        val currentQuestion = questionsList[currentQuestionIndex]
+        tvProgress.text = "Pytanie: ${currentQuestionIndex + 1} / ${questionsList.size}"
+        tvQuestion.text = currentQuestion.question
+
+        // Generowanie 4 odpowiedzi (1 poprawna + 3 losowe) przy użyciu Twojego repozytorium
+        val generatedAnswers = repository.generateAnswersForQuestion(currentQuestion)
+
+        // Przypisanie tekstów do przycisków oraz obsługa kliknięć
+        for (i in answerButtons.indices) {
+            val answerText = generatedAnswers[i]
+            answerButtons[i].text = answerText
+
+            answerButtons[i].setOnClickListener {
+                checkAnswer(answerText, currentQuestion.correctAnswer)
+            }
+        }
+    }
+
+    private fun checkAnswer(selectedAnswer: String, correctAnswer: String) {
+        if (selectedAnswer == correctAnswer) {
+            score++
+            Toast.makeText(this, "Poprawna odpowiedź!", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Błąd! Prawidłowo: $correctAnswer", Toast.LENGTH_SHORT).show()
+        }
+
+        // Przejście do kolejnego pytania
+        currentQuestionIndex++
+        displayQuestion()
+    }
+
+    private fun endQuiz() {
+        // Przejście do ekranu podsumowania (SummaryActivity) wraz z wynikami
+        val intent = Intent(this, SummaryActivity::class.java).apply {
+            putExtra("SCORE", score)
+            putExtra("TOTAL_QUESTIONS", questionsList.size)
+        }
+        startActivity(intent)
+        finish() // Zamykamy QuizActivity, żeby gracz nie mógł wrócić cofaniem
     }
 }
