@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizgame.databinding.ActivitySummaryBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SummaryActivity : AppCompatActivity() {
 
@@ -23,6 +24,10 @@ class SummaryActivity : AppCompatActivity() {
         binding.tvScore.text = "Twój wynik: $score / $total"
 
         setupSummaryProgressBar(progressColors)
+
+        binding.btnPlayAgain.setOnClickListener {
+            showQuestionCountPopup()
+        }
 
         binding.btnBackToMain.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -45,5 +50,27 @@ class SummaryActivity : AppCompatActivity() {
             segment.setBackgroundColor(colors[i])
             binding.llSummaryProgressBar.addView(segment)
         }
+    }
+
+    private fun showQuestionCountPopup() {
+        val options = arrayOf("10 pytań", "20 pytań", "30 pytań")
+        val values = intArrayOf(10, 20, 30)
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Ile pytań chcesz dzisiaj pokonać?")
+            .setItems(options) { _, which ->
+                val selectedCount = values[which]
+                startQuiz(selectedCount)
+            }
+            .setNegativeButton("Anuluj", null)
+            .show()
+    }
+
+    private fun startQuiz(count: Int) {
+        val intent = Intent(this, QuizActivity::class.java).apply {
+            putExtra("QUESTION_COUNT", count)
+        }
+        startActivity(intent)
+        finish()
     }
 }
