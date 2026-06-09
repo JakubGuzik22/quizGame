@@ -2,6 +2,7 @@ package com.example.quizgame
 
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
@@ -12,6 +13,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 class SummaryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySummaryBinding
+    private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,10 @@ class SummaryActivity : AppCompatActivity() {
         val progressColors = intent.getIntegerArrayListExtra("PROGRESS_COLORS") ?: arrayListOf<Int>()
 
         binding.tvScore.text = "Twój wynik: $score / $total"
+        
+        if (score == total && total > 0) {
+            playPerfectScoreSound()
+        }
         
         handleBestScore(score, total)
 
@@ -96,5 +102,16 @@ class SummaryActivity : AppCompatActivity() {
         }
         startActivity(intent)
         finish()
+    }
+
+    private fun playPerfectScoreSound() {
+        mediaPlayer = MediaPlayer.create(this, R.raw.perfect_score)
+        mediaPlayer?.start()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
 }
