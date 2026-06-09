@@ -25,7 +25,7 @@
         android:layout_marginTop="32dp"
         android:contentDescription="Obrazek pytania"
         android:scaleType="centerInside"
-        android:src="@android:drawable/ic_menu_gallery"
+        android:src="@drawable/quiz_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvProgress" />
