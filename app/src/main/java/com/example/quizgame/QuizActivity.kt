@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.quizgame.databinding.ActivityQuizBinding
+import java.util.ArrayList
 
 class QuizActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQuizBinding
@@ -29,8 +30,16 @@ class QuizActivity : AppCompatActivity() {
         totalQuestionsToAsk = intent.getIntExtra("QUESTION_COUNT", 10)
 
         repository = QuizRepository(this)
-        val allQuestions = repository.loadQuestions().shuffled()
-        questionsList = allQuestions.take(totalQuestionsToAsk)
+        
+        if (savedInstanceState != null) {
+            currentQuestionIndex = savedInstanceState.getInt("CURRENT_INDEX")
+            score = savedInstanceState.getInt("SCORE")
+            @Suppress("DEPRECATION", "UNCHECKED_CAST")
+            questionsList = savedInstanceState.getSerializable("QUESTIONS_LIST") as ArrayList<Question>
+        } else {
+            val allQuestions = repository.loadQuestions().shuffled()
+            questionsList = allQuestions.take(totalQuestionsToAsk)
+        }
 
         answerButtons = listOf(
             binding.btnAnswer1,
@@ -50,7 +59,7 @@ class QuizActivity : AppCompatActivity() {
 
         val currentQuestion = questionsList[currentQuestionIndex]
         binding.tvProgress.text = "Pytanie: ${currentQuestionIndex + 1} / ${questionsList.size}"
-        binding.tvQuestion.text = currentQuestion.question
+        binding.tvQuestion.text = "\"${currentQuestion.question}\""
 
         val generatedAnswers = repository.generateAnswersForQuestion(currentQuestion)
 
@@ -94,6 +103,13 @@ class QuizActivity : AppCompatActivity() {
             currentQuestionIndex++
             displayQuestion()
         }, 3000)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("CURRENT_INDEX", currentQuestionIndex)
+        outState.putInt("SCORE", score)
+        outState.putSerializable("QUESTIONS_LIST", ArrayList(questionsList))
     }
 
     private fun endQuiz() {
