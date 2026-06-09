@@ -1,5 +1,6 @@
 package com.example.quizgame
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -22,6 +23,8 @@ class SummaryActivity : AppCompatActivity() {
         val progressColors = intent.getIntegerArrayListExtra("PROGRESS_COLORS") ?: arrayListOf<Int>()
 
         binding.tvScore.text = "Twój wynik: $score / $total"
+        
+        handleBestScore(score, total)
 
         setupSummaryProgressBar(progressColors)
 
@@ -35,6 +38,27 @@ class SummaryActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             finish()
+        }
+    }
+
+    private fun handleBestScore(currentScore: Int, currentTotal: Int) {
+        val sharedPref = getSharedPreferences("QuizPrefs", Context.MODE_PRIVATE)
+        val bestScore = sharedPref.getInt("BEST_SCORE", 0)
+        val bestTotal = sharedPref.getInt("BEST_TOTAL", 0)
+
+        // Porównujemy procentowo, żeby rekord był sprawiedliwy niezależnie od liczby pytań
+        val currentPercent = if (currentTotal > 0) currentScore.toFloat() / currentTotal else 0f
+        val bestPercent = if (bestTotal > 0) bestScore.toFloat() / bestTotal else 0f
+
+        if (currentPercent >= bestPercent) {
+            with(sharedPref.edit()) {
+                putInt("BEST_SCORE", currentScore)
+                putInt("BEST_TOTAL", currentTotal)
+                apply()
+            }
+            binding.tvBestScore.text = "Nowy rekord: $currentScore / $currentTotal"
+        } else {
+            binding.tvBestScore.text = "Najlepszy wynik: $bestScore / $bestTotal"
         }
     }
 
