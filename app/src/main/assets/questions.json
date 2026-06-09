@@ -1,618 +1,640 @@
-[
-  {
-    "question": "Żadne krzyki i płacze nas nie przekonają, że białe jest białe, a czarne jest czarne.",
-    "correctAnswer": "Jarosław Kaczyński"
-  },
-  {
-    "question": "Wszyscy pamiętamy te słowa o moherowych beretach.",
-    "correctAnswer": "Jarosław Kaczyński"
-  },
-  {
-    "question": "Obywatele, którzy nie stoją tam, gdzie stało ZOMO.",
-    "correctAnswer": "Jarosław Kaczyński"
-  },
-  {
-    "question": "Wierzę, że nadejdzie dzień, kiedy w Warszawie będzie Budapeszt.",
-    "correctAnswer": "Jarosław Kaczyński"
-  },
-  {
-    "question": "To jest element walki z tradycyjną polską rodziną.",
-    "correctAnswer": "Jarosław Kaczyński"
-  },
-  {
-    "question": "Jeżeli ktoś ma gwoździe w butach, to my musimy mieć jeszcze grubsze gwoździe.",
-    "correctAnswer": "Jarosław Kaczyński"
-  },
-  {
-    "question": "Warto być Polakiem, warto, by naród polski i jego państwo trwały.",
-    "correctAnswer": "Jarosław Kaczyński"
-  },
-  {
-    "question": "Nie dajmy się terroryzować tej poprawności politycznej.",
-    "correctAnswer": "Jarosław Kaczyński"
-  },
-  {
-    "question": "Polska jest dzisiaj krajem wolności, jedną z nielicznych oaz w Europie.",
-    "correctAnswer": "Jarosław Kaczyński"
-  },
-  {
-    "question": "Nie wycierajcie swoich zdradzieckich mord tą świętą pamięcią.",
-    "correctAnswer": "Jarosław Kaczyński"
-  },
-  {
-    "question": "Polskość to nienormalność.",
-    "correctAnswer": "Donald Tusk"
-  },
-  {
-    "question": "Pokażcie mi, gdzie te drogi są, to sam chętnie po nich przejadę.",
-    "correctAnswer": "Donald Tusk"
-  },
-  {
-    "question": "Nie budujmy pomników, budujmy boiska.",
-    "correctAnswer": "Donald Tusk"
-  },
-  {
-    "question": "Jeśli ktoś ma wizje, to powinien iść do lekarza.",
-    "correctAnswer": "Donald Tusk"
-  },
-  {
-    "question": "Mówię to jako człowiek, który nie boi się trudnych wyzwań.",
-    "correctAnswer": "Donald Tusk"
-  },
-  {
-    "question": "Nikt w Polsce nie musi się bać własnego państwa.",
-    "correctAnswer": "Donald Tusk"
-  },
-  {
-    "question": "Polska ma dzisiaj najlepsze w historii relacje z Niemcami.",
-    "correctAnswer": "Donald Tusk"
-  },
-  {
-    "question": "Wietrzenie piwnic z tej stęchlizny politycznej jest konieczne.",
-    "correctAnswer": "Donald Tusk"
-  },
-  {
-    "question": "Wygramy te wybory, obiecuję wam to.",
-    "correctAnswer": "Donald Tusk"
-  },
-  {
-    "question": "Für Deutschland.",
-    "correctAnswer": "Donald Tusk"
-  },
-  {
-    "question": "W bitwie pod Grunwaldem też brali udział Gdańszczanie.",
-    "correctAnswer": "Mateusz Morawiecki"
-  },
-  {
-    "question": "Żeby nie było tak, że my musimy zapieprzać za miskę ryżu.",
-    "correctAnswer": "Mateusz Morawiecki"
-  },
-  {
-    "question": "Naszym celem jest, aby Polacy zarabiali tak jak na Zachodzie, a ceny były polskie.",
-    "correctAnswer": "Mateusz Morawiecki"
-  },
-  {
-    "question": "My pokazaliśmy, że potrafimy gonić królika i tego królika złapać.",
-    "correctAnswer": "Mateusz Morawiecki"
-  },
-  {
-    "question": "Gdybyśmy nie uszczelnili systemu podatkowego, nie byłoby pieniędzy na nic.",
-    "correctAnswer": "Mateusz Morawiecki"
-  },
-  {
-    "question": "To jest, szanowni państwo, taki... mafijny kapitalizm.",
-    "correctAnswer": "Mateusz Morawiecki"
-  },
-  {
-    "question": "Polska jest jak piękna kobieta, o którą trzeba dbać.",
-    "correctAnswer": "Mateusz Morawiecki"
-  },
-  {
-    "question": "Wprowadziliśmy tarczę antysurowcową, antyputinowską, antyinflacyjną...",
-    "correctAnswer": "Mateusz Morawiecki"
-  },
-  {
-    "question": "Zgadzam się z panem posłem, że to jest absurd, ale to jest absurd ustawowy.",
-    "correctAnswer": "Mateusz Morawiecki"
-  },
-  {
-    "question": "Nasi przeciwnicy polityczni mają program: niech będzie tak, jak było.",
-    "correctAnswer": "Mateusz Morawiecki"
-  },
-  {
-    "question": "Nie chcemy Żydów, homoseksualistów, aborcji, podatków i Unii Europejskiej.",
-    "correctAnswer": "Sławomir Mentzen"
-  },
-  {
-    "question": "Ja nic nie pamiętam, byłem wtedy pijany.",
-    "correctAnswer": "Sławomir Mentzen"
-  },
-  {
-    "question": "To jest, szanowni państwo, taka... publicystyczna teza.",
-    "correctAnswer": "Sławomir Mentzen"
-  },
-  {
-    "question": "Chcę, żeby Polacy mieli dwa samochody, dom z ogrodem, grilla i wakacje.",
-    "correctAnswer": "Sławomir Mentzen"
-  },
-  {
-    "question": "Nie ma żadnego darmowego pain paina.",
-    "correctAnswer": "Sławomir Mentzen"
-  },
-  {
-    "question": "System podatkowy w Polsce jest tak skomplikowany, że sami urzędnicy go nie rozumieją.",
-    "correctAnswer": "Sławomir Mentzen"
-  },
-  {
-    "question": "Stoyę przed wami i mówię prosto z mostu: podatki to kradzież.",
-    "correctAnswer": "Sławomir Mentzen"
-  },
-  {
-    "question": "Wprowadzimy ustawę o wolności słowa, żeby każdy mógł mówić, co chce.",
-    "correctAnswer": "Sławomir Mentzen"
-  },
-  {
-    "question": "Państwo traktuje przedsiębiorcę jak dojną krowę, a potem się dziwi, że nie ma mleka.",
-    "correctAnswer": "Sławomir Mentzen"
-  },
-  {
-    "question": "Piwo z Mentzenem.",
-    "correctAnswer": "Sławomir Mentzen"
-  },
-  {
-    "question": "Ja mam 170 centymetrów wzrostu i to w kapeluszu.",
-    "correctAnswer": "Włodzimierz Czarzasty"
-  },
-  {
-    "question": "Nie bójcie się lewicy, lewica nie gryzie. No, chyba że na prośbę.",
-    "correctAnswer": "Włodzimierz Czarzasty"
-  },
-  {
-    "question": "Zgadzam się z panem premierem, rzadko mi się to zdarza, ale się zgadzam.",
-    "correctAnswer": "Włodzimierz Czarzasty"
-  },
-  {
-    "question": "Ja pana bardzo lubię, panie pośle, ale pan opowiada takie bzdury...",
-    "correctAnswer": "Włodzimierz Czarzasty"
-  },
-  {
-    "question": "Jak słyszę o tych wszystkich sojuszach, to mi się scyzoryk w kieszeni otwiera.",
-    "correctAnswer": "Włodzimierz Czarzasty"
-  },
-  {
-    "question": "Bogaci muszą płacić wyższe podatki i kropka.",
-    "correctAnswer": "Adrian Zandberg"
-  },
-  {
-    "question": "Mieszkanie to prawo, a nie towar.",
-    "correctAnswer": "Adrian Zandberg"
-  },
-  {
-    "question": "Pan żyje w jakiejś alternatywnej rzeczywistości.",
-    "correctAnswer": "Adrian Zandberg"
-  },
-  {
-    "question": "Czas skończyć z tą dyktaturą wielkich korporacji.",
-    "correctAnswer": "Adrian Zandberg"
-  },
-  {
-    "question": "Państwo nie jest od tego, żeby zarabiać, państwo jest od tego, żeby pomagać.",
-    "correctAnswer": "Adrian Zandberg"
-  },
-  {
-    "question": "Jeżeli będą zakazane samochody spalinowe, to będziemy jeździć na benzynowych.",
-    "correctAnswer": "Magdalena Biejat"
-  },
-  {
-    "question": "Frankfurt – bo miasta też wchodzą w grę?",
-    "correctAnswer": "Magdalena Biejat"
-  },
-  {
-    "question": "Blokada ulicy to radykalny, ale bezpieczny protest.",
-    "correctAnswer": "Magdalena Biejat"
-  },
-  {
-    "question": "Seks to nie jest zbrodnia, a ciąża to nie kara.",
-    "correctAnswer": "Magdalena Biejat"
-  },
-  {
-    "question": "Mówi o sobie dumnie, że jest doktorem ekonomii, ale za każdym razem udowadnia, że nie wie nic o życiu.",
-    "correctAnswer": "Magdalena Biejat"
-  },
-  {
-    "question": "Szanowni państwo, ja też chodzę do sklepu i kupuję chleb.",
-    "correctAnswer": "Adam Glapiński"
-  },
-  {
-    "question": "Traktat na molo w Sopocie nie istnieje.",
-    "correctAnswer": "Adam Glapiński"
-  },
-  {
-    "question": "Polska gospodarka rozwija się jak... jak po prostu rakieta balistyczna.",
-    "correctAnswer": "Adam Glapiński"
-  },
-  {
-    "question": "Mamy jastrzębie serce i gołębi umysł.",
-    "correctAnswer": "Adam Glapiński"
-  },
-  {
-    "question": "Inflacja jest jak ząbkowanie u dziecka. Musi boleć, ale w końcu przejdzie.",
-    "correctAnswer": "Adam Glapiński"
-  },
-  {
-    "question": "Naszym celem jest, aby inflacja zeszła do poziomu... no, takiego właściwego.",
-    "correctAnswer": "Adam Glapiński"
-  },
-  {
-    "question": "Złoty jest silny, złoty jest stabilny, złoty jest... po prostu piękny.",
-    "correctAnswer": "Adam Glapiński"
-  },
-  {
-    "question": "Gdybyśmy słuchali tych wszystkich ekspertów z opozycji, to dzisiaj w Polsce nie byłoby niczego.",
-    "correctAnswer": "Adam Glapiński"
-  },
-  {
-    "question": "Ja nie jestem od tego, żeby straszyć Polaków. Ja jestem od tego, żeby nieść dobrą nowinę.",
-    "correctAnswer": "Adam Glapiński"
-  },
-  {
-    "question": "Mamy takie zapasy złota, że moglibyśmy z nich zbudować... no, bardzo dużą rzecz.",
-    "correctAnswer": "Adam Glapiński"
-  },
-  {
-    "question": "Ugruntowanie dziewcząt do cnót niewieścich.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Skupcie się na nauce. Na seks przyjdzie czas.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Zgadzam się być maszynistą w tym pociągu.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "No głupek! No głupek, byśmy powiedzieli!",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "U nas jakoś nie przyjęły się pół baby, pół chłopy.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Nie będę dawał pieniędzy naukowcom, którzy obrażają Polaków.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Rodzic to się pisze w TVN-ie. Zaraz będzie rodzic nr 1 i rodzic nr 2.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Nie ma żadnego ETS-u. Wypowiadamy to!",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Rozum, dotychczas w służbie Boga, stał się samym Bogiem.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Dzisiaj to państwo Tuska i lewaczek od Czarzastego urządza w Polsce piekło kobiet.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Pomożemy dalej Ukrainie, ale żądamy szacunku od pana Zełenskiego.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "My nie mamy żadnego waszego miksu energetycznego. My mamy nasz miks węglowy.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Polska przez te dwa lata się zabagniła.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Ktoś ma czelność pouczać nas o praworządności?",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "To jest ordynarna, lewacka ideologia, która niszczy mózgi młodym ludziom.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Idziemy do szkół z pełną odwagą, bo tam toczy się wojna kulturowa.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Aborcja jest zbrodnią i my nigdy za zbrodnią głosować nie będziemy.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Polacy to dumni i ambitni ludzie. Potrzebują tylko państwa, które ich nie łupi.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Ruszamy po Polskę dla Polaków. Do zwycięstwa!",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Prawdziwa nauka nie boi się prawdy historycznej.",
-    "correctAnswer": "Przemysław Czarnek"
-  },
-  {
-    "question": "Szczęść Boże!",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Będziesz pan wisiał!",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Kto tu rządzi? Czy my jesteśmy w kondominium rosyjsko-niemieckim pod żydowskim zarządem powierniczym?",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "To jest akt głębokiej higieny religijnej i kulturowej.",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Zgaś ten chanukowy szał!",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Eurokołchoz musi zostać zdemontowany.",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Nie będzie Niemiec, nie będzie Żyd, nie będzie pluł nam w twarz i dzieci nam germanił!",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Dość tego! Precz z tą maskaradą, precz z tym sanitarnym terrorem!",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Szanowna pani marszałek, zgłaszam wniosek formalny o opuszczenie tej sali przez osoby nieuprawnione.",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "To nie jest nasza wojna.",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Ja nie negocjuję z okupantem.",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Sodoma i Gomora to przy tym, co wy tu wyprawiacie, oaza spokoju.",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Rzucam na was klątwę... polityczną klątwę!",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Niech żyje Król! Króluj nam Chryste!",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Pan prokurator to się chyba z choinki urwał.",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "To jest stan wyższej konieczności, ja ratuję godność tego gmachu.",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Z panem Bogiem, panie pośle, z panem Bogiem.",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Bat i miska ryżu – oto co nam szykujecie!",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Ktokolwiek podnosi rękę na polską tradycję, ten podnosi rękę na samą Polskę.",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Polska dla Polaków, a nie dla globalnych korporacji i eurokratów.",
-    "correctAnswer": "Grzegorz Braun"
-  },
-  {
-    "question": "Już nikt nigdy przez tego pana życia pozbawiony nie będzie.",
-    "correctAnswer": "Zbigniew Ziobro"
-  },
-  {
-    "question": "W polityce nie można być... miękiszonem.",
-    "correctAnswer": "Zbigniew Ziobro"
-  },
-  {
-    "question": "Przyjdzie czas, że za to odpowiecie! To są fujary, a nie prokuratorzy!",
-    "correctAnswer": "Zbigniew Ziobro"
-  },
-  {
-    "question": "Donald Tusk od lat realizuje scenariusz napisany w Berlinie.",
-    "correctAnswer": "Zbigniew Ziobro"
-  },
-  {
-    "question": "Uczciwi ludzie nie mają się czego bać.",
-    "correctAnswer": "Zbigniew Ziobro"
-  },
-  {
-    "question": "Tego typu akcje trollingowe może są fajne na TikToku, ale nie w państwie prawa.",
-    "correctAnswer": "Zbigniew Ziobro"
-  },
-  {
-    "question": "Polska nie może skapitulować przed tym unijnym szantażem.",
-    "correctAnswer": "Zbigniew Ziobro"
-  },
-  {
-    "question": "Jeśli nie obronimy naszej suwerenności, to staniemy się tylko landem.",
-    "correctAnswer": "Zbigniew Ziobro"
-  },
-  {
-    "question": "Mamy do czynienia z totalną anarchizacją i bezprawiem.",
-    "correctAnswer": "Zbigniew Ziobro"
-  },
-  {
-    "question": "Sędziowie mają stać na straży prawa, a nie bawić się w polityków.",
-    "correctAnswer": "Zbigniew Ziobro"
-  },
-  {
-    "question": "Gdybyśmy mieli energię z wiatru, to te wiatraki by ten wiatr zużyły i wiało by słabiej.",
-    "correctAnswer": "Marek Suski"
-  },
-  {
-    "question": "Caryca Katarzyna była Polką? No... nazwisko miała takie trochę polskobrzmiące.",
-    "correctAnswer": "Marek Suski"
-  },
-  {
-    "question": "Szanowni państwo, ja mam prawo do własnego zdania, nawet jeśli ono jest niezgodne z faktami.",
-    "correctAnswer": "Marek Suski"
-  },
-  {
-    "question": "Ja jestem artystą, ja patrzę na świat przez pryzmat piękna, a nie suchych przepisów.",
-    "correctAnswer": "Marek Suski"
-  },
-  {
-    "question": "Ja nie pamiętam, żebym kiedykolwiek rozmawiał z panem, panie... panie jak pan się nazywa?",
-    "correctAnswer": "Marek Suski"
-  },
-  {
-    "question": "Polska nie da się skolonizować Brukseli, Bruksela to nie jest nasza stolica.",
-    "correctAnswer": "Marek Suski"
-  },
-  {
-    "question": "Gdyby nie PiS, to dzisiaj w Polsce nie byłoby nawet internetu.",
-    "correctAnswer": "Marek Suski"
-  },
-  {
-    "question": "To jest ordynarny atak kosmitów na polską demokrację.",
-    "correctAnswer": "Marek Suski"
-  },
-  {
-    "question": "Donald Tusk to jest taki polityczny Janosik, tylko że zabiera biednym i daje bogatym.",
-    "correctAnswer": "Marek Suski"
-  },
-  {
-    "question": "My wcale nie chcemy polexitu, my po prostu chcemy, żeby Unia nas szanowała.",
-    "correctAnswer": "Marek Suski"
-  },
-  {
-    "question": "Tusk znaczy bieda! Tusk znaczy drożyzna!",
-    "correctAnswer": "Janusz Kowalski"
-  },
-  {
-    "question": "Koniec z tą ideologiczną agresją w polskich szkołach, stop tęczowym kredkom!",
-    "correctAnswer": "Janusz Kowalski"
-  },
-  {
-    "question": "Pan się śmieje? Z polskich rolników pan się śmieje?!",
-    "correctAnswer": "Janusz Kowalski"
-  },
-  {
-    "question": "Zaoraliście polskie rolnictwo! Gdzie są te miliardy?!",
-    "correctAnswer": "Janusz Kowalski"
-  },
-  {
-    "question": "To jest suwerenna decyzja! Polacy nie będą klękać przed eurokratami!",
-    "correctAnswer": "Janusz Kowalski"
-  },
-  {
-    "question": "Polska nie jest na sprzedaż!",
-    "correctAnswer": "Janusz Kowalski"
-  },
-  {
-    "question": "Nigdy nie zgodzimy się na likwidację polskiego węgla!",
-    "correctAnswer": "Janusz Kowalski"
-  },
-  {
-    "question": "To jest niemiecki interes, realizowany przez polskojęzyczne media!",
-    "correctAnswer": "Janusz Kowalski"
-  },
-  {
-    "question": "Wy jesteście totalną opozycją, wy potraficie tylko kłamać od rana do wieczora!",
-    "correctAnswer": "Janusz Kowalski"
-  },
-  {
-    "question": "Brońmy polskiej wsi przed tą brukselską zarazą!",
-    "correctAnswer": "Janusz Kowalski"
-  },
-  {
-    "question": "Zawsze się trochę gwałci.",
-    "correctAnswer": "Janusz Korwin-Mikke"
-  },
-  {
-    "question": "A poza tym uważam, że Unia Europejska musi zostać zniszczona.",
-    "correctAnswer": "Janusz Korwin-Mikke"
-  },
-  {
-    "question": "Kobiety średnio są niższe, słabsze i mniej inteligentne.",
-    "correctAnswer": "Janusz Korwin-Mikke"
-  },
-  {
-    "question": "Mistrale zostały sprzedane do Egiptu i przeszły w ręce Federacji Rosyjskiej za jednego dolara.",
-    "correctAnswer": "Antoni Macierewicz"
-  },
-  {
-    "question": "To były dwie bomby, które wybuchły w strukturze skrzydła.",
-    "correctAnswer": "Antoni Macierewicz"
-  },
-  {
-    "question": "Mamy do czynienia z terroryzmem państwowym ze strony Rosji.",
-    "correctAnswer": "Antoni Macierewicz"
-  },
-  {
-    "question": "Są tacy, którzy chcą wymazać Polskę z mapy świata.",
-    "correctAnswer": "Antoni Macierewicz"
-  },
-  {
-    "question": "Polska armia była systematycznie rozbrajana przez naszych poprzedników.",
-    "correctAnswer": "Antoni Macierewicz"
-  },
-  {
-    "question": "To jest kłamstwo założycielskie, na którym zbudowano współczesny system III RP.",
-    "correctAnswer": "Antoni Macierewicz"
-  },
-  {
-    "question": "Obrona terytorialna to jest kręgosłup bezpieczeństwa polskiego państwa.",
-    "correctAnswer": "Antoni Macierewicz"
-  },
-  {
-    "question": "Nie spoczniemy, dopóki prawda o tej tragedii nie ujrzy światła dziennego.",
-    "correctAnswer": "Antoni Macierewicz"
-  },
-  {
-    "question": "To nie były błędy pilotów, to był zaplanowany i precyzyjnie przeprowadzony zamach.",
-    "correctAnswer": "Antoni Macierewicz"
-  },
-  {
-    "question": "Instytucje państwa polskiego przez lata działały w interesie obcych mocarstw.",
-    "correctAnswer": "Antoni Macierewicz"
-  },
-  {
-    "question": "Unijna flaga to dla mnie szmata, która obraża polskie barwy.",
-    "correctAnswer": "Krystyna Pawłowicz"
-  },
-  {
-    "question": "Wstyd mi za was! Wy jesteście bezwstydna, lewacka zaraza!",
-    "correctAnswer": "Krystyna Pawłowicz"
-  },
-  {
-    "question": "Weźmie się pan za uczciwą pracę, a nie za szkalowanie Polski!",
-    "correctAnswer": "Krystyna Pawłowicz"
-  },
-  {
-    "question": "Wolałbym, żeby moje pieniądze szły na kulturę, a nie na kolejne lekcje religii.",
-    "correctAnswer": "Robert Biedroń"
-  },
-  {
-    "question": "Mandat europosła? Nie, nie po to zakładałem partię Wiosna, żeby uciekać do Brukseli.",
-    "correctAnswer": "Robert Biedroń"
-  },
-  {
-    "question": "Po pierwsze Polska, po pierwsze Polacy.",
-    "correctAnswer": "Karol Nawrocki"
-  }
-]
+{
+  "authors": [
+    { "id": "kaczynski", "name": "Jarosław Kaczyński", "image": "avatar_kaczynski" },
+    { "id": "tusk", "name": "Donald Tusk", "image": "avatar_tusk" },
+    { "id": "morawiecki", "name": "Mateusz Morawiecki", "image": "avatar_morawiecki" },
+    { "id": "mentzen", "name": "Sławomir Mentzen", "image": "avatar_mentzen" },
+    { "id": "czarzasty", "name": "Włodzimierz Czarzasty", "image": "avatar_czarzasty" },
+    { "id": "zandberg", "name": "Adrian Zandberg", "image": "avatar_zandberg" },
+    { "id": "biejat", "name": "Magdalena Biejat", "image": "avatar_biejat" },
+    { "id": "glapinski", "name": "Adam Glapiński", "image": "avatar_glapinski" },
+    { "id": "czarnek", "name": "Przemysław Czarnek", "image": "avatar_czarnek" },
+    { "id": "braun", "name": "Grzegorz Braun", "image": "avatar_braun" },
+    { "id": "ziobro", "name": "Zbigniew Ziobro", "image": "avatar_ziobro" },
+    { "id": "suski", "name": "Marek Suski", "image": "avatar_suski" },
+    { "id": "kowalski", "name": "Janusz Kowalski", "image": "avatar_kowalski" },
+    { "id": "korwin", "name": "Janusz Korwin-Mikke", "image": "avatar_korwin" },
+    { "id": "macierewicz", "name": "Antoni Macierewicz", "image": "avatar_macierewicz" },
+    { "id": "pawlowicz", "name": "Krystyna Pawłowicz", "image": "avatar_pawlowicz" },
+    { "id": "biedron", "name": "Robert Biedroń", "image": "avatar_biedron" },
+    { "id": "nawrocki", "name": "Karol Nawrocki", "image": "avatar_nawrocki" }
+  ],
+  "questions": [
+    {
+      "question": "Żadne krzyki i płacze nas nie przekonają, że białe jest białe, a czarne jest czarne.",
+      "authorId": "kaczynski"
+    },
+    {
+      "question": "Wszyscy pamiętamy te słowa o moherowych beretach.",
+      "authorId": "kaczynski"
+    },
+    {
+      "question": "Obywatele, którzy nie stoją tam, gdzie stało ZOMO.",
+      "authorId": "kaczynski"
+    },
+    {
+      "question": "Wierzę, że nadejdzie dzień, kiedy w Warszawie będzie Budapeszt.",
+      "authorId": "kaczynski"
+    },
+    {
+      "question": "To jest element walki z tradycyjną polską rodziną.",
+      "authorId": "kaczynski"
+    },
+    {
+      "question": "Jeżeli ktoś ma gwoździe w butach, to my musimy mieć jeszcze grubsze gwoździe.",
+      "authorId": "kaczynski"
+    },
+    {
+      "question": "Warto być Polakiem, warto, by naród polski i jego państwo trwały.",
+      "authorId": "kaczynski"
+    },
+    {
+      "question": "Nie dajmy się terroryzować tej poprawności politycznej.",
+      "authorId": "kaczynski"
+    },
+    {
+      "question": "Polska jest dzisiaj krajem wolności, jedną z nielicznych oaz w Europie.",
+      "authorId": "kaczynski"
+    },
+    {
+      "question": "Nie wycierajcie swoich zdradzieckich mord tą świętą pamięcią.",
+      "authorId": "kaczynski"
+    },
+    {
+      "question": "Polskość to nienormalność.",
+      "authorId": "tusk"
+    },
+    {
+      "question": "Pokażcie mi, gdzie te drogi są, to sam chętnie po nich przejadę.",
+      "authorId": "tusk"
+    },
+    {
+      "question": "Nie budujmy pomników, budujmy boiska.",
+      "authorId": "tusk"
+    },
+    {
+      "question": "Jeśli ktoś ma wizje, to powinien iść do lekarza.",
+      "authorId": "tusk"
+    },
+    {
+      "question": "Mówię to jako człowiek, który nie boi się trudnych wyzwań.",
+      "authorId": "tusk"
+    },
+    {
+      "question": "Nikt w Polsce nie musi się bać własnego państwa.",
+      "authorId": "tusk"
+    },
+    {
+      "question": "Polska ma dzisiaj najlepsze w historii relacje z Niemcami.",
+      "authorId": "tusk"
+    },
+    {
+      "question": "Wietrzenie piwnic z tej stęchlizny politycznej jest konieczne.",
+      "authorId": "tusk"
+    },
+    {
+      "question": "Wygramy te wybory, obiecuję wam to.",
+      "authorId": "tusk"
+    },
+    {
+      "question": "Für Deutschland.",
+      "authorId": "tusk"
+    },
+    {
+      "question": "W bitwie pod Grunwaldem też brali udział Gdańszczanie.",
+      "authorId": "morawiecki"
+    },
+    {
+      "question": "Żeby nie było tak, że my musimy zapieprzać za miskę ryżu.",
+      "authorId": "morawiecki"
+    },
+    {
+      "question": "Naszym celem jest, aby Polacy zarabiali tak jak na Zachodzie, a ceny były polskie.",
+      "authorId": "morawiecki"
+    },
+    {
+      "question": "My pokazaliśmy, że potrafimy gonić królika i tego królika złapać.",
+      "authorId": "morawiecki"
+    },
+    {
+      "question": "Gdybyśmy nie uszczelnili systemu podatkowego, nie byłoby pieniędzy na nic.",
+      "authorId": "morawiecki"
+    },
+    {
+      "question": "To jest, szanowni państwo, taki... mafijny kapitalizm.",
+      "authorId": "morawiecki"
+    },
+    {
+      "question": "Polska jest jak piękna kobieta, o którą trzeba dbać.",
+      "authorId": "morawiecki"
+    },
+    {
+      "question": "Wprowadziliśmy tarczę antysurowcową, antyputinowską, antyinflacyjną...",
+      "authorId": "morawiecki"
+    },
+    {
+      "question": "Zgadzam się with panem posłem, że to jest absurd, ale to jest absurd ustawowy.",
+      "authorId": "morawiecki"
+    },
+    {
+      "question": "Nasi przeciwnicy polityczni mają program: niech będzie tak, jak było.",
+      "authorId": "morawiecki"
+    },
+    {
+      "question": "Nie chcemy Żydów, homoseksualistów, aborcji, podatków i Unii Europejskiej.",
+      "authorId": "mentzen"
+    },
+    {
+      "question": "Ja nic nie pamiętam, byłem wtedy pijany.",
+      "authorId": "mentzen"
+    },
+    {
+      "question": "To jest, szanowni państwo, taka... publicystyczna teza.",
+      "authorId": "mentzen"
+    },
+    {
+      "question": "Chcę, żeby Polacy mieli dwa samochody, dom z ogrodem, grilla i wakacje.",
+      "authorId": "mentzen"
+    },
+    {
+      "question": "Nie ma żadnego darmowego pain paina.",
+      "authorId": "mentzen"
+    },
+    {
+      "question": "System podatkowy w Polsce jest tak skomplikowany, że sami urzędnicy go nie rozumieją.",
+      "authorId": "mentzen"
+    },
+    {
+      "question": "Stoyę przed wami i mówię prosto z mostu: podatki to kradzież.",
+      "authorId": "mentzen"
+    },
+    {
+      "question": "Wprowadzimy ustawę o wolności słowa, żeby każdy mógł mówić, co chce.",
+      "authorId": "mentzen"
+    },
+    {
+      "question": "Państwo traktuje przedsiębiorcę jak dojną krowę, a potem się dziwi, że nie ma mleka.",
+      "authorId": "mentzen"
+    },
+    {
+      "question": "Piwo z Mentzenem.",
+      "authorId": "mentzen"
+    },
+    {
+      "question": "Ja mam 170 centymetrów wzrostu i to w kapeluszu.",
+      "authorId": "czarzasty"
+    },
+    {
+      "question": "Nie bójcie się lewicy, lewica nie gryzie. No, chyba że na prośbę.",
+      "authorId": "czarzasty"
+    },
+    {
+      "question": "Zgadzam się z panem premierem, rzadko mi się to zdarza, ale się zgadzam.",
+      "authorId": "czarzasty"
+    },
+    {
+      "question": "Ja pana bardzo lubię, panie pośle, ale pan opowiada takie bzdury...",
+      "authorId": "czarzasty"
+    },
+    {
+      "question": "Jak słyszę o tych wszystkich sojuszach, to mi się scyzoryk w kieszeni otwiera.",
+      "authorId": "czarzasty"
+    },
+    {
+      "question": "Bogaci muszą płacić wyższe podatki i kropka.",
+      "authorId": "zandberg"
+    },
+    {
+      "question": "Mieszkanie to prawo, a nie towar.",
+      "authorId": "zandberg"
+    },
+    {
+      "question": "Pan żyje w jakiejś alternatywnej rzeczywistości.",
+      "authorId": "zandberg"
+    },
+    {
+      "question": "Czas skończyć z tą dyktaturą wielkich korporacji.",
+      "authorId": "zandberg"
+    },
+    {
+      "question": "Państwo nie jest od tego, żeby zarabiać, państwo jest od tego, żeby pomagać.",
+      "authorId": "zandberg"
+    },
+    {
+      "question": "Jeżeli będą zakazane samochody spalinowe, to będziemy jeździć na benzynowych.",
+      "authorId": "biejat"
+    },
+    {
+      "question": "Frankfurt – bo miasta też wchodzą w grę?",
+      "authorId": "biejat"
+    },
+    {
+      "question": "Blokada ulicy to radykalny, ale bezpieczny protest.",
+      "authorId": "biejat"
+    },
+    {
+      "question": "Seks to nie jest zbrodnia, a ciąża to nie kara.",
+      "authorId": "biejat"
+    },
+    {
+      "question": "Mówi o sobie dumnie, że jest doktorem ekonomii, ale za każdym razem udowadnia, że nie wie nic o życiu.",
+      "authorId": "biejat"
+    },
+    {
+      "question": "Szanowni państwo, ja też chodzę do sklepu i kupuję chleb.",
+      "authorId": "glapinski"
+    },
+    {
+      "question": "Traktat na molo w Sopocie nie istnieje.",
+      "authorId": "glapinski"
+    },
+    {
+      "question": "Polska gospodarka rozwija się jak... jak po prostu rakieta balistyczna.",
+      "authorId": "glapinski"
+    },
+    {
+      "question": "Mamy jastrzębie serce i gołębi umysł.",
+      "authorId": "glapinski"
+    },
+    {
+      "question": "Inflacja jest jak ząbkowanie u dziecka. Musi boleć, ale w końcu przejdzie.",
+      "authorId": "glapinski"
+    },
+    {
+      "question": "Naszym celem jest, aby inflacja zeszła do poziomu... no, takiego właściwego.",
+      "authorId": "glapinski"
+    },
+    {
+      "question": "Złoty jest silny, złoty jest stabilny, złoty jest... po prostu piękny.",
+      "authorId": "glapinski"
+    },
+    {
+      "question": "Gdybyśmy słuchali tych wszystkich experts z opozycji, to dzisiaj w Polsce nie byłoby niczego.",
+      "authorId": "glapinski"
+    },
+    {
+      "question": "Ja nie jestem od tego, żeby straszyć Polaków. Ja jestem od tego, żeby nieść dobrą nowinę.",
+      "authorId": "glapinski"
+    },
+    {
+      "question": "Mamy takie zapasy złota, że moglibyśmy z nich zbudować... no, bardzo dużą rzecz.",
+      "authorId": "glapinski"
+    },
+    {
+      "question": "Ugruntowanie dziewcząt do cnót niewieścich.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Skupcie się na nauce. Na seks przyjdzie czas.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Zgadzam się być maszynistą w tym pociągu.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "No głupek! No głupek, byśmy powiedzieli!",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "U nas jakoś nie przyjęły się pół baby, pół chłopy.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Nie będę dawał pieniędzy naukowcom, którzy obrażają Polaków.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Rodzic to się pisze w TVN-ie. Zaraz będzie rodzic nr 1 i rodzic nr 2.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Nie ma żadnego ETS-u. Wypowiadamy to!",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Rozum, dotychczas w służbie Boga, stał się samym Bogiem.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Dzisiaj to państwo Tuska i lewaczek od Czarzastego urządza w Polsce piekło kobiet.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Pomożemy dalej Ukrainie, ale żądamy szacunku od pana Zełenskiego.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "My nie mamy żadnego waszego miksu energetycznego. My mamy nasz miks węglowy.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Polska przez te dwa lata się zabagniła.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Ktoś ma czelność pouczać nas o praworządności?",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "To jest ordynarna, lewacka ideologia, która niszczy mózgi młodym ludziom.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Idziemy do szkół z pełną odwagą, bo tam toczy się wojna kulturowa.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Aborcja jest zbrodnią i my nigdy za zbrodnią głosować nie będziemy.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Polacy to dumni i ambitni ludzie. Potrzebują tylko państwa, które ich nie łupi.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Ruszamy po Polskę dla Polaków. Do zwycięstwa!",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Prawdziwa nauka nie boi się prawdy historycznej.",
+      "authorId": "czarnek"
+    },
+    {
+      "question": "Szczęść Boże!",
+      "authorId": "braun"
+    },
+    {
+      "question": "Będziesz pan wisiał!",
+      "authorId": "braun"
+    },
+    {
+      "question": "Kto tu rządzi? Czy my jesteśmy w kondominium rosyjsko-niemieckim pod żydowskim zarządem powierniczym?",
+      "authorId": "braun"
+    },
+    {
+      "question": "To jest akt głębokiej higieny religijnej i kulturowej.",
+      "authorId": "braun"
+    },
+    {
+      "question": "Zgaś ten chanukowy szał!",
+      "authorId": "braun"
+    },
+    {
+      "question": "Eurokołchoz musi zostać zdemontowany.",
+      "authorId": "braun"
+    },
+    {
+      "question": "Nie będzie Niemiec, nie będzie Żyd, nie będzie pluł nam w twarz i dzieci nam germanił!",
+      "authorId": "braun"
+    },
+    {
+      "question": "Dość tego! Precz z tą maskaradą, precz z tym sanitarnym terrorem!",
+      "authorId": "braun"
+    },
+    {
+      "question": "Szanowna pani marszałek, zgłaszam wniosek formalny o opuszczenie tej sali przez osoby nieuprawnione.",
+      "authorId": "braun"
+    },
+    {
+      "question": "To nie jest nasza wojna.",
+      "authorId": "braun"
+    },
+    {
+      "question": "Ja nie negocjuję z okupantem.",
+      "authorId": "braun"
+    },
+    {
+      "question": "Sodoma i Gomora to przy tym, co wy tu wyprawiacie, oaza spokoju.",
+      "authorId": "braun"
+    },
+    {
+      "question": "Rzucam na was klątwę... polityczną klątwę!",
+      "authorId": "braun"
+    },
+    {
+      "question": "Niech żyje Król! Króluj nam Chryste!",
+      "authorId": "braun"
+    },
+    {
+      "question": "Pan prokurator to się chyba z choinki urwał.",
+      "authorId": "braun"
+    },
+    {
+      "question": "To jest stan wyższej konieczności, ja ratuję godność tego gmachu.",
+      "authorId": "braun"
+    },
+    {
+      "question": "Z panem Bogiem, panie pośle, z panem Bogiem.",
+      "authorId": "braun"
+    },
+    {
+      "question": "Bat i miska ryżu – oto co nam szykujecie!",
+      "authorId": "braun"
+    },
+    {
+      "question": "Ktokolwiek podnosi rękę na polską tradycję, ten podnosi rękę na samą Polskę.",
+      "authorId": "braun"
+    },
+    {
+      "question": "Polska dla Polaków, a nie dla globalnych korporacji i eurokratów.",
+      "authorId": "braun"
+    },
+    {
+      "question": "Już nikt nigdy przez tego pana życia pozbawiony nie będzie.",
+      "authorId": "ziobro"
+    },
+    {
+      "question": "W polityce nie można być... miękiszonem.",
+      "authorId": "ziobro"
+    },
+    {
+      "question": "Przyjdzie czas, że za to odpowiecie! To są fujary, a nie prokuratorzy!",
+      "authorId": "ziobro"
+    },
+    {
+      "question": "Donald Tusk od lat realizuje scenariusz napisany w Berlinie.",
+      "authorId": "ziobro"
+    },
+    {
+      "question": "Uczciwi ludzie nie mają się czego bać.",
+      "authorId": "ziobro"
+    },
+    {
+      "question": "Tego typu akcje trollingowe może są fajne na TikToku, ale nie w państwie prawa.",
+      "authorId": "ziobro"
+    },
+    {
+      "question": "Polska nie może skapitulować przed tym unijnym szantażem.",
+      "authorId": "ziobro"
+    },
+    {
+      "question": "Jeśli nie obronimy naszej suwerenności, to staniemy się tylko landem.",
+      "authorId": "ziobro"
+    },
+    {
+      "question": "Mamy do czynienia with totalną anarchizacją i bezprawiem.",
+      "authorId": "ziobro"
+    },
+    {
+      "question": "Sędziowie mają stać na straży prawa, a nie bawić się w polityków.",
+      "authorId": "ziobro"
+    },
+    {
+      "question": "Gdybyśmy mieli energię z wiatru, to te wiatraki by ten wiatr zużyły i wiało by słabiej.",
+      "authorId": "suski"
+    },
+    {
+      "question": "Caryca Katarzyna była Polką? No... nazwisko miała takie trochę polskobrzmiące.",
+      "authorId": "suski"
+    },
+    {
+      "question": "Szanowni państwo, ja mam prawo do własnego zdania, nawet jeśli ono jest niezgodne z faktami.",
+      "authorId": "suski"
+    },
+    {
+      "question": "Ja jestem artystą, ja patrzę na świat przez pryzmat piękna, a nie suchych przepisów.",
+      "authorId": "suski"
+    },
+    {
+      "question": "Ja nie pamiętam, żebym kiedykolwiek rozmawiał z panem, panie... panie jak pan się nazywa?",
+      "authorId": "suski"
+    },
+    {
+      "question": "Polska nie da się skolonizować Brukseli, Bruksela to nie jest nasza stolica.",
+      "authorId": "suski"
+    },
+    {
+      "question": "Gdyby nie PiS, to dzisiaj w Polsce nie byłoby nawet internetu.",
+      "authorId": "suski"
+    },
+    {
+      "question": "To jest ordynarny atak kosmitów na polską demokrację.",
+      "authorId": "suski"
+    },
+    {
+      "question": "Donald Tusk to jest taki polityczny Janosik, tylko że zabiera biednym i daje bogatym.",
+      "authorId": "suski"
+    },
+    {
+      "question": "My wcale nie chcemy polexitu, my po prostu chcemy, żeby Unia nas szanowała.",
+      "authorId": "suski"
+    },
+    {
+      "question": "Tusk znaczy bieda! Tusk znaczy drożyzna!",
+      "authorId": "kowalski"
+    },
+    {
+      "question": "Koniec z tą ideologiczną agresją w polskich szkołach, stop tęczowym kredkom!",
+      "authorId": "kowalski"
+    },
+    {
+      "question": "Pan się śmieje? Z polskich rolników pan się śmieje?!",
+      "authorId": "kowalski"
+    },
+    {
+      "question": "Zaoraliście polskie rolnictwo! Gdzie są te miliardy?!",
+      "authorId": "kowalski"
+    },
+    {
+      "question": "To jest suwerenna decyzja! Polacy nie będą klękać przed eurokratami!",
+      "authorId": "kowalski"
+    },
+    {
+      "question": "Polska nie jest na sprzedaż!",
+      "authorId": "kowalski"
+    },
+    {
+      "question": "Nigdy nie zgodzimy się na likwidację polskiego węgla!",
+      "authorId": "kowalski"
+    },
+    {
+      "question": "To jest niemiecki interes, realizowany przez polskojęzyczne media!",
+      "authorId": "kowalski"
+    },
+    {
+      "question": "Wy jesteście totalną opozycją, wy potraficie tylko kłamać od rana do wieczora!",
+      "authorId": "kowalski"
+    },
+    {
+      "question": "Brońmy polskiej wsi przed tą brukselską zarazą!",
+      "authorId": "kowalski"
+    },
+    {
+      "question": "Zawsze się trochę gwałci.",
+      "authorId": "korwin"
+    },
+    {
+      "question": "A poza tym uważam, że Unia Europejska musi zostać zniszczona.",
+      "authorId": "korwin"
+    },
+    {
+      "question": "Kobiety średnio są niższe, słabsze i mindre inteligentne.",
+      "authorId": "korwin"
+    },
+    {
+      "question": "Mistrale zostały sprzedane do Egiptu i przeszły w ręce Federacji Rosyjskiej za jednego dolara.",
+      "authorId": "macierewicz"
+    },
+    {
+      "question": "To były dwie bomby, które wybuchły w strukturze skrzydła.",
+      "authorId": "macierewicz"
+    },
+    {
+      "question": "Mamy do czynienia with terroryzmem państwowym ze strony Rosji.",
+      "authorId": "macierewicz"
+    },
+    {
+      "question": "Są tacy, którzy chcą wymazać Polskę z mapy świata.",
+      "authorId": "macierewicz"
+    },
+    {
+      "question": "Polska armia była systematycznie rozbrajana przez naszych poprzedników.",
+      "authorId": "macierewicz"
+    },
+    {
+      "question": "To jest kłamstwo założycielskie, na którym zbudowano współczesny system III RP.",
+      "authorId": "macierewicz"
+    },
+    {
+      "question": "Obrona terytorialna to jest kręgosłup bezpieczeństwa polskiego państwa.",
+      "authorId": "macierewicz"
+    },
+    {
+      "question": "Nie spoczniemy, dopóki prawda o tej tragedii nie ujrzy światła dziennego.",
+      "authorId": "macierewicz"
+    },
+    {
+      "question": "To nie były błędy pilotów, to był zaplanowany i precyzyjnie przeprowadzony zamach.",
+      "authorId": "macierewicz"
+    },
+    {
+      "question": "Instytucje państwa polskiego przez lata działały w interesie obcych mocarstw.",
+      "authorId": "macierewicz"
+    },
+    {
+      "question": "Unijna flaga to dla mnie szmata, która obraża polskie barwy.",
+      "authorId": "pawlowicz"
+    },
+    {
+      "question": "Wstyd mi za was! Wy jesteście bezwstydna, lewacka zaraza!",
+      "authorId": "pawlowicz"
+    },
+    {
+      "question": "Weźmie się pan za uczciwą pracę, a nie za szkalowanie Polski!",
+      "authorId": "pawlowicz"
+    },
+    {
+      "question": "Wolałbym, żeby moje pieniądze szły na kulturę, a nie na kolejne lekcje religii.",
+      "authorId": "biedron"
+    },
+    {
+      "question": "Mandat europosła? Nie, nie po to zakładałem partię Wiosna, żeby uciekać do Brukseli.",
+      "authorId": "biedron"
+    },
+    {
+      "question": "Po pierwsze Polska, po pierwsze Polacy.",
+      "authorId": "nawrocki"
+    }
+  ]
+}

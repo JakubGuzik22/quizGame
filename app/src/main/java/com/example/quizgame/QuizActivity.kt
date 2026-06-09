@@ -41,7 +41,7 @@ class QuizActivity : AppCompatActivity() {
             questionsList = savedInstanceState.getSerializable("QUESTIONS_LIST") as ArrayList<Question>
             progressColors = savedInstanceState.getIntegerArrayList("PROGRESS_COLORS") ?: ArrayList()
         } else {
-            val allQuestions = repository.loadQuestions().shuffled()
+            val allQuestions = repository.getAllQuestions().shuffled()
             questionsList = allQuestions.take(totalQuestionsToAsk)
         }
 
@@ -83,8 +83,11 @@ class QuizActivity : AppCompatActivity() {
         }
 
         val currentQuestion = questionsList[currentQuestionIndex]
+        val correctAnswer = repository.getAuthorName(currentQuestion.authorId)
+        
         binding.tvProgress.text = "Pytanie: ${currentQuestionIndex + 1} / ${questionsList.size}"
         binding.tvQuestion.text = "\"${currentQuestion.question}\""
+        binding.ivQuestionImage.setImageResource(R.drawable.quiz_icon)
 
         val generatedAnswers = repository.generateAnswersForQuestion(currentQuestion)
 
@@ -99,7 +102,7 @@ class QuizActivity : AppCompatActivity() {
             button.setTextColor(Color.WHITE)
 
             button.setOnClickListener {
-                checkAnswer(button, answerText, currentQuestion.correctAnswer)
+                checkAnswer(button, answerText, correctAnswer)
             }
         }
     }
@@ -125,6 +128,7 @@ class QuizActivity : AppCompatActivity() {
             }
         }
         
+        revealAuthorImage()
         updateProgressBar()
 
         // Wait 3 seconds before next question
@@ -137,6 +141,17 @@ class QuizActivity : AppCompatActivity() {
     private fun updateProgressBar() {
         val segment = binding.llProgressBar.getChildAt(currentQuestionIndex)
         segment?.setBackgroundColor(progressColors.last())
+    }
+
+    private fun revealAuthorImage() {
+        val currentQuestion = questionsList[currentQuestionIndex]
+        val imageName = repository.getAuthorImage(currentQuestion.authorId)
+        if (imageName != null) {
+            val resId = resources.getIdentifier(imageName, "drawable", packageName)
+            if (resId != 0) {
+                binding.ivQuestionImage.setImageResource(resId)
+            }
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
