@@ -62,13 +62,24 @@
         android:id="@+id/btnPlayAgain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:text="Zagraj ponownie"
-        app:layout_constraintBottom_toTopOf="@+id/btnBackToMain"
+        app:layout_constraintBottom_toTopOf="@+id/btnShowHighScores"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/llSummaryProgressBar"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btnShowHighScores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Tabela wyników"
+        app:layout_constraintBottom_toTopOf="@+id/btnBackToMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnPlayAgain" />
 
     <Button
         android:id="@+id/btnBackToMain"
@@ -79,6 +90,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnPlayAgain" />
+        app:layout_constraintTop_toBottomOf="@id/btnShowHighScores" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
