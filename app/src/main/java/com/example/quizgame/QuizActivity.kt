@@ -36,10 +36,11 @@ class QuizActivity : AppCompatActivity() {
 
     private var isMultiplayer = false
     private var isHost = false
-    private var socket: Socket? = null
+    private var playerName = "Gracz"
+    private var playerSockets = mutableListOf<Socket>()
     private var serverSocket: ServerSocket? = null
-    private var objectIn: ObjectInputStream? = null
-    private var objectOut: ObjectOutputStream? = null
+    private var objectInputs = mutableListOf<ObjectInputStream>()
+    private var objectOutputs = mutableListOf<ObjectOutputStream>()
 
     private lateinit var answerButtons: List<Button>
 
@@ -58,6 +59,7 @@ class QuizActivity : AppCompatActivity() {
 
         totalQuestionsToAsk = intent.getIntExtra("QUESTION_COUNT", 10)
         isHost = intent.getBooleanExtra("IS_HOST", false)
+        playerName = intent.getStringExtra("PLAYER_NAME") ?: "Gracz"
         val hostAddress = intent.getStringExtra("HOST_ADDRESS")
         val port = intent.getIntExtra("PORT", -1)
         isMultiplayer = port != -1
@@ -91,42 +93,56 @@ class QuizActivity : AppCompatActivity() {
 
     private fun startMultiplayer(port: Int, hostAddress: String?) {
         binding.flWaitingOverlay.visibility = View.VISIBLE
+        val expectedPlayers = intent.getIntExtra("PLAYER_COUNT", 2)
         
         Thread {
             try {
                 if (isHost) {
-                    serverSocket = ServerSocket(port)
-                    socket = serverSocket?.accept()
+                    serverSocket = ServerSocket()
+                    serverSocket?.reuseAddress = true
+                    serverSocket?.bind(InetSocketAddress(port))
+                    
+                    for (i in 0 until expectedPlayers - 1) {
+                        binding.tvWaitingMessage.post {
+                            binding.tvWaitingMessage.text = "Oczekiwanie na graczy (${playerSockets.size + 1}/$expectedPlayers)..."
+                        }
+                        val s = serverSocket?.accept() ?: break
+                        playerSockets.add(s)
+                        val out = ObjectOutputStream(s.getOutputStream())
+                        val `in` = ObjectInputStream(s.getInputStream())
+                        objectOutputs.add(out)
+                        objectInputs.add(`in`)
+                    }
+
+                    val allQuestions = repository.getAllQuestions().shuffled()
+                    questionsList = allQuestions.take(totalQuestionsToAsk)
+                    
+                    for (out in objectOutputs) {
+                        out.reset()
+                        out.writeObject(ArrayList(questionsList))
+                        out.flush()
+                    }
                 } else {
                     var connected = false
                     var attempts = 0
-                    // Add a small initial delay to give the host time to start the ServerSocket
-                    Thread.sleep(500)
-                    while (!connected && attempts < 10) {
+                    // Poczekaj chwilę dłużej, aby host zdążył uruchomić nowy serwer
+                    Thread.sleep(1000)
+                    while (!connected && attempts < 15) {
                         try {
                             val s = Socket()
                             s.connect(InetSocketAddress(hostAddress, port), 5000)
-                            socket = s
+                            playerSockets.add(s)
+                            objectOutputs.add(ObjectOutputStream(s.getOutputStream()))
+                            objectInputs.add(ObjectInputStream(s.getInputStream()))
                             connected = true
                         } catch (e: Exception) {
                             attempts++
-                            if (attempts >= 10) throw e
+                            if (attempts >= 15) throw e
                             Thread.sleep(1000)
                         }
                     }
-                }
-
-                objectOut = ObjectOutputStream(socket?.getOutputStream())
-                objectIn = ObjectInputStream(socket?.getInputStream())
-
-                if (isHost) {
-                    val allQuestions = repository.getAllQuestions().shuffled()
-                    questionsList = allQuestions.take(totalQuestionsToAsk)
-                    objectOut?.writeObject(questionsList)
-                    objectOut?.flush()
-                } else {
                     @Suppress("UNCHECKED_CAST")
-                    questionsList = objectIn?.readObject() as ArrayList<Question>
+                    questionsList = objectInputs[0].readObject() as ArrayList<Question>
                 }
 
                 runOnUiThread {
@@ -169,7 +185,7 @@ class QuizActivity : AppCompatActivity() {
             if (isMultiplayer) {
                 syncScoreAndEnd()
             } else {
-                endQuiz()
+                endQuiz(false)
             }
             return
         }
@@ -258,39 +274,68 @@ class QuizActivity : AppCompatActivity() {
 
     private fun syncScoreAndEnd() {
         binding.flWaitingOverlay.visibility = View.VISIBLE
-        binding.tvWaitingMessage.text = "Oczekiwanie na wynik przeciwnika..."
+        binding.tvWaitingMessage.text = "Oczekiwanie na wyniki innych..."
         
         Thread {
             try {
-                objectOut?.writeInt(score)
-                objectOut?.flush()
-                
-                val opponentScore = objectIn?.readInt() ?: 0
+                val resultsList = ArrayList<PlayerResult>()
+                if (isHost) {
+                    resultsList.add(PlayerResult(playerName, score))
+                    for (i in objectInputs.indices) {
+                        try {
+                            val clientResult = objectInputs[i].readObject() as PlayerResult
+                            resultsList.add(clientResult)
+                        } catch (e: Exception) {
+                            Log.e("Multiplayer", "Error reading client result", e)
+                        }
+                    }
+                    // Broadcast final results
+                    for (out in objectOutputs) {
+                        try {
+                            out.reset()
+                            out.writeObject(resultsList)
+                            out.flush()
+                        } catch (e: Exception) {
+                            Log.e("Multiplayer", "Error sending final results", e)
+                        }
+                    }
+                    // Daj klientom czas na odebranie wyników przed zamknięciem gniazd w onDestroy
+                    Thread.sleep(1000)
+                } else {
+                    objectOutputs[0].reset()
+                    objectOutputs[0].writeObject(PlayerResult(playerName, score))
+                    objectOutputs[0].flush()
+                    @Suppress("UNCHECKED_CAST")
+                    val finalResults = objectInputs[0].readObject() as ArrayList<PlayerResult>
+                    resultsList.addAll(finalResults)
+                }
                 
                 runOnUiThread {
                     val intent = Intent(this, SummaryActivity::class.java).apply {
                         putExtra("SCORE", score)
                         putExtra("TOTAL_QUESTIONS", questionsList.size)
                         putIntegerArrayListExtra("PROGRESS_COLORS", progressColors)
-                        putExtra("OPPONENT_SCORE", opponentScore)
+                        putExtra("RESULTS_LIST", resultsList)
                         putExtra("IS_MULTIPLAYER", true)
                     }
                     startActivity(intent)
                     finish()
                 }
             } catch (e: Exception) {
-                runOnUiThread {
-                    endQuiz() // Fallback to normal end if connection fails
-                }
+                Log.e("Multiplayer", "Sync error", e)
+                runOnUiThread { endQuiz(true) }
             }
         }.start()
     }
 
-    private fun endQuiz() {
+    private fun endQuiz(forceMultiplayerFlag: Boolean = false) {
         val intent = Intent(this, SummaryActivity::class.java).apply {
             putExtra("SCORE", score)
             putExtra("TOTAL_QUESTIONS", questionsList.size)
             putIntegerArrayListExtra("PROGRESS_COLORS", progressColors)
+            if (forceMultiplayerFlag || isMultiplayer) {
+                putExtra("IS_MULTIPLAYER", true)
+            }
         }
         startActivity(intent)
         finish()
@@ -311,9 +356,9 @@ class QuizActivity : AppCompatActivity() {
         mediaPlayer?.release()
         mediaPlayer = null
         try {
-            objectIn?.close()
-            objectOut?.close()
-            socket?.close()
+            objectInputs.forEach { it.close() }
+            objectOutputs.forEach { it.close() }
+            playerSockets.forEach { it.close() }
             serverSocket?.close()
         } catch (e: Exception) {
             // ignore

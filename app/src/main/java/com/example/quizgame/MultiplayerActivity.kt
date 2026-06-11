@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizgame.databinding.ActivityMultiplayerBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.net.ServerSocket
 
 class MultiplayerActivity : AppCompatActivity() {
@@ -22,7 +23,6 @@ class MultiplayerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMultiplayerBinding
     private lateinit var nsdManager: NsdManager
     private val SERVICE_TYPE = "_quizgame._tcp."
-    private val SERVICE_NAME = "QuizGameHost"
 
     private val discoveredServices = mutableListOf<NsdServiceInfo>()
     private lateinit var adapter: RoomAdapter
@@ -59,28 +59,40 @@ class MultiplayerActivity : AppCompatActivity() {
     }
 
     private fun startHosting() {
-        val localPort = 6000//findFreePort()
-        registerService(localPort)
+        val playerName = binding.etPlayerName.text.toString().ifBlank { "Gracz" }
         
-        // In a real app, we would start a ServerSocket here and wait for connection
-        // Then start MultiplayerQuizActivity as Host
-        Toast.makeText(this, "Hostowanie na porcie $localPort...", Toast.LENGTH_SHORT).show()
-        
-        val intent = Intent(this, QuizActivity::class.java).apply {
-            putExtra("IS_HOST", true)
-            putExtra("PORT", localPort)
-            putExtra("QUESTION_COUNT", 10) // Default
+        val input = android.widget.EditText(this).apply {
+            hint = "Nazwa pokoju"
+            setText("${playerName}'s Game")
         }
-        startActivity(intent)
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Stwórz Pokój")
+            .setView(input)
+            .setPositiveButton("Stwórz") { _, _ ->
+                val roomName = input.text.toString().ifBlank { "Pokój gier" }
+                val localPort = 6000//findFreePort()
+                registerService(roomName, localPort)
+                
+                val intent = Intent(this, LobbyActivity::class.java).apply {
+                    putExtra("IS_HOST", true)
+                    putExtra("ROOM_NAME", roomName)
+                    putExtra("PLAYER_NAME", playerName)
+                    putExtra("PORT", localPort)
+                }
+                startActivity(intent)
+            }
+            .setNegativeButton("Anuluj", null)
+            .show()
     }
 
     private fun findFreePort(): Int {
         return ServerSocket(0).use { it.localPort }
     }
 
-    private fun registerService(port: Int) {
+    private fun registerService(roomName: String, port: Int) {
         val serviceInfo = NsdServiceInfo().apply {
-            serviceName = SERVICE_NAME
+            serviceName = roomName
             serviceType = SERVICE_TYPE
             setPort(port)
         }
@@ -124,12 +136,10 @@ class MultiplayerActivity : AppCompatActivity() {
             override fun onServiceFound(serviceInfo: NsdServiceInfo) {
                 Log.d("NSD", "Service found: ${serviceInfo.serviceName}")
                 if (serviceInfo.serviceType == SERVICE_TYPE) {
-                    if (serviceInfo.serviceName.contains(SERVICE_NAME)) {
-                        runOnUiThread {
-                            if (!discoveredServices.any { it.serviceName == serviceInfo.serviceName }) {
-                                discoveredServices.add(serviceInfo)
-                                adapter.notifyDataSetChanged()
-                            }
+                    runOnUiThread {
+                        if (!discoveredServices.any { it.serviceName == serviceInfo.serviceName }) {
+                            discoveredServices.add(serviceInfo)
+                            adapter.notifyDataSetChanged()
                         }
                     }
                 }
@@ -159,9 +169,12 @@ class MultiplayerActivity : AppCompatActivity() {
                 val port = resolvedServiceInfo.port
                 
                 runOnUiThread {
+                    val playerName = binding.etPlayerName.text.toString().ifBlank { "Gracz" }
                     Toast.makeText(this@MultiplayerActivity, "Łączenie z $host:$port", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@MultiplayerActivity, QuizActivity::class.java).apply {
+                    val intent = Intent(this@MultiplayerActivity, LobbyActivity::class.java).apply {
                         putExtra("IS_HOST", false)
+                        putExtra("ROOM_NAME", resolvedServiceInfo.serviceName)
+                        putExtra("PLAYER_NAME", playerName)
                         putExtra("HOST_ADDRESS", host)
                         putExtra("PORT", port)
                     }

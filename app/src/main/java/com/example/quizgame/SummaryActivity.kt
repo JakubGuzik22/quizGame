@@ -37,7 +37,8 @@ class SummaryActivity : AppCompatActivity() {
         val score = intent.getIntExtra("SCORE", 0)
         val total = intent.getIntExtra("TOTAL_QUESTIONS", 0)
         val progressColors = intent.getIntegerArrayListExtra("PROGRESS_COLORS") ?: arrayListOf<Int>()
-        val opponentScore = intent.getIntExtra("OPPONENT_SCORE", -1)
+        @Suppress("UNCHECKED_CAST")
+        val resultsList = intent.getSerializableExtra("RESULTS_LIST") as? ArrayList<PlayerResult>
         val isMultiplayer = intent.getBooleanExtra("IS_MULTIPLAYER", false)
 
         binding.tvScore.text = "Twój wynik: $score / $total"
@@ -46,8 +47,8 @@ class SummaryActivity : AppCompatActivity() {
             playPerfectScoreSound()
         }
         
-        if (isMultiplayer) {
-            handleMultiplayerResult(score, opponentScore, total)
+        if (isMultiplayer && resultsList != null) {
+            handleMultiplayerResult(score, resultsList, total)
         } else {
             handleBestScore(score, total)
         }
@@ -71,14 +72,37 @@ class SummaryActivity : AppCompatActivity() {
         }
     }
 
-    private fun handleMultiplayerResult(currentScore: Int, opponentScore: Int, total: Int) {
-        val resultText = when {
-            currentScore > opponentScore -> "WYGRAŁEŚ! 🏆 (Przeciwnik: $opponentScore)"
-            currentScore < opponentScore -> "PRZEGRAŁEŚ... 💀 (Przeciwnik: $opponentScore)"
-            else -> "REMIS! 🤝 (Przeciwnik: $opponentScore)"
+    private fun handleMultiplayerResult(currentScore: Int, results: List<PlayerResult>, total: Int) {
+        val sortedResults = results.sortedByDescending { it.score }
+        val maxScore = sortedResults.firstOrNull()?.score ?: 0
+        
+        val isWinner = currentScore == maxScore
+        val winnersCount = results.count { it.score == maxScore }
+        
+        val sb = StringBuilder()
+        if (isWinner && winnersCount == 1) {
+            sb.append("WYGRAŁEŚ! 🏆\n\n")
+            binding.tvBestScore.setTextColor(0xFF4CAF50.toInt())
+        } else if (isWinner) {
+            sb.append("REMIS! 🤝\n\n")
+            binding.tvBestScore.setTextColor(0xFF4CAF50.toInt())
+        } else {
+            sb.append("PRZEGRAŁEŚ... 💀\n\n")
+            binding.tvBestScore.setTextColor(0xFFF44336.toInt())
         }
-        binding.tvBestScore.text = resultText
-        binding.tvBestScore.setTextColor(if (currentScore >= opponentScore) 0xFF4CAF50.toInt() else 0xFFF44336.toInt())
+        
+        sortedResults.forEachIndexed { index, result ->
+            val prefix = when (index) {
+                0 -> "🥇 "
+                1 -> "🥈 "
+                2 -> "🥉 "
+                else -> "${index + 1}. "
+            }
+            sb.append("$prefix${result.name}: ${result.score} pkt\n")
+        }
+        
+        binding.tvBestScore.text = sb.toString()
+        binding.tvBestScore.gravity = android.view.Gravity.CENTER
     }
 
     private fun handleBestScore(currentScore: Int, currentTotal: Int) {
