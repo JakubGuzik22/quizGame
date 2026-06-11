@@ -12,6 +12,7 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.quizgame.databinding.ActivitySummaryBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -21,6 +22,14 @@ class SummaryActivity : AppCompatActivity() {
     private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val sharedPref = getSharedPreferences("QuizPrefs", Context.MODE_PRIVATE)
+        val isDarkMode = sharedPref.getBoolean("DARK_MODE", false)
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
         super.onCreate(savedInstanceState)
         binding = ActivitySummaryBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -176,6 +185,10 @@ class SummaryActivity : AppCompatActivity() {
     }
 
     private fun playPerfectScoreSound() {
+        val sharedPref = getSharedPreferences("QuizPrefs", Context.MODE_PRIVATE)
+        val isSoundEnabled = sharedPref.getBoolean("SOUND_ENABLED", true)
+        if (!isSoundEnabled) return
+
         mediaPlayer = MediaPlayer.create(this, R.raw.perfect_score)
         mediaPlayer?.start()
     }

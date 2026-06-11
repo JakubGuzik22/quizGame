@@ -15,7 +15,6 @@
         android:text="Koniec Gry!"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/tvScore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

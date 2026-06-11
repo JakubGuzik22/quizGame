@@ -1,5 +1,6 @@
 package com.example.quizgame
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
@@ -10,6 +11,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import com.example.quizgame.databinding.ActivityQuizBinding
 import java.util.ArrayList
@@ -28,6 +30,14 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var answerButtons: List<Button>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val sharedPref = getSharedPreferences("QuizPrefs", Context.MODE_PRIVATE)
+        val isDarkMode = sharedPref.getBoolean("DARK_MODE", false)
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
         super.onCreate(savedInstanceState)
         binding = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -177,6 +187,10 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun playSound(resId: Int) {
+        val sharedPref = getSharedPreferences("QuizPrefs", Context.MODE_PRIVATE)
+        val isSoundEnabled = sharedPref.getBoolean("SOUND_ENABLED", true)
+        if (!isSoundEnabled) return
+
         mediaPlayer?.release()
         mediaPlayer = MediaPlayer.create(this, resId)
         mediaPlayer?.start()

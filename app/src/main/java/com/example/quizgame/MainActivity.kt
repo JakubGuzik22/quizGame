@@ -5,18 +5,30 @@ import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.Gravity
+import android.widget.LinearLayout
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.quizgame.databinding.ActivityMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Apply theme before super.onCreate to avoid recreation if possible
+        val sharedPref = getSharedPreferences("QuizPrefs", Context.MODE_PRIVATE)
+        val isDarkMode = sharedPref.getBoolean("DARK_MODE", false)
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -28,6 +40,51 @@ class MainActivity : AppCompatActivity() {
         binding.btnShowHighScores.setOnClickListener {
             showHighScoresTable()
         }
+
+        binding.btnSettings.setOnClickListener {
+            showSettingsDialog()
+        }
+    }
+
+    private fun showSettingsDialog() {
+        val sharedPref = getSharedPreferences("QuizPrefs", Context.MODE_PRIVATE)
+        val isDarkMode = sharedPref.getBoolean("DARK_MODE", false)
+        val isSoundEnabled = sharedPref.getBoolean("SOUND_ENABLED", true)
+
+        val layout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(60, 40, 60, 40)
+        }
+
+        val themeSwitch = SwitchMaterial(this).apply {
+            text = "Tryb ciemny"
+            isChecked = isDarkMode
+            setOnCheckedChangeListener { _, isChecked ->
+                sharedPref.edit().putBoolean("DARK_MODE", isChecked).apply()
+                if (isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                }
+            }
+        }
+
+        val soundSwitch = SwitchMaterial(this).apply {
+            text = "Dźwięki"
+            isChecked = isSoundEnabled
+            setOnCheckedChangeListener { _, isChecked ->
+                sharedPref.edit().putBoolean("SOUND_ENABLED", isChecked).apply()
+            }
+        }
+
+        layout.addView(themeSwitch)
+        layout.addView(soundSwitch)
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Ustawienia")
+            .setView(layout)
+            .setPositiveButton("Zamknij", null)
+            .show()
     }
 
     private fun showHighScoresTable() {
