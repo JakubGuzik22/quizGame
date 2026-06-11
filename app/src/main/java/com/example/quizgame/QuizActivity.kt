@@ -2,6 +2,7 @@ package com.example.quizgame
 
 import android.content.Intent
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -17,6 +18,7 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQuizBinding
     private lateinit var repository: QuizRepository
     private lateinit var questionsList: List<Question>
+    private var mediaPlayer: MediaPlayer? = null
 
     private var currentQuestionIndex = 0
     private var score = 0
@@ -117,9 +119,11 @@ class QuizActivity : AppCompatActivity() {
             score++
             selectedButton.setBackgroundColor(ContextCompat.getColor(this, R.color.green))
             progressColors.add(ContextCompat.getColor(this, R.color.green))
+            playSound(R.raw.answer_correct)
         } else {
             selectedButton.setBackgroundColor(ContextCompat.getColor(this, R.color.red))
             progressColors.add(ContextCompat.getColor(this, R.color.red))
+            playSound(R.raw.answer_incorrect)
             // Highlight the correct answer
             answerButtons.forEach { button ->
                 if (button.text == correctAnswer) {
@@ -170,5 +174,17 @@ class QuizActivity : AppCompatActivity() {
         }
         startActivity(intent)
         finish()
+    }
+
+    private fun playSound(resId: Int) {
+        mediaPlayer?.release()
+        mediaPlayer = MediaPlayer.create(this, resId)
+        mediaPlayer?.start()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
 }
