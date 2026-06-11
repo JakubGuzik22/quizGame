@@ -41,6 +41,10 @@ class MainActivity : AppCompatActivity() {
             showHighScoresTable()
         }
 
+        binding.btnMultiplayer.setOnClickListener {
+            startActivity(Intent(this, MultiplayerActivity::class.java))
+        }
+
         binding.btnSettings.setOnClickListener {
             showSettingsDialog()
         }

@@ -40,11 +40,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Rozpocznij Grę"
-        app:layout_constraintBottom_toTopOf="@+id/btnShowHighScores"
+        app:layout_constraintBottom_toTopOf="@+id/btnMultiplayer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDescription"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btnMultiplayer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Pojedynek LAN"
+        app:layout_constraintBottom_toTopOf="@+id/btnShowHighScores"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnStart" />
 
     <Button
         android:id="@+id/btnShowHighScores"
@@ -56,7 +67,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnSettings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnStart" />
+        app:layout_constraintTop_toBottomOf="@id/btnMultiplayer" />
 
     <Button
         android:id="@+id/btnSettings"

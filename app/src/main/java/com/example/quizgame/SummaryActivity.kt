@@ -37,6 +37,8 @@ class SummaryActivity : AppCompatActivity() {
         val score = intent.getIntExtra("SCORE", 0)
         val total = intent.getIntExtra("TOTAL_QUESTIONS", 0)
         val progressColors = intent.getIntegerArrayListExtra("PROGRESS_COLORS") ?: arrayListOf<Int>()
+        val opponentScore = intent.getIntExtra("OPPONENT_SCORE", -1)
+        val isMultiplayer = intent.getBooleanExtra("IS_MULTIPLAYER", false)
 
         binding.tvScore.text = "Twój wynik: $score / $total"
         
@@ -44,7 +46,11 @@ class SummaryActivity : AppCompatActivity() {
             playPerfectScoreSound()
         }
         
-        handleBestScore(score, total)
+        if (isMultiplayer) {
+            handleMultiplayerResult(score, opponentScore, total)
+        } else {
+            handleBestScore(score, total)
+        }
 
         setupSummaryProgressBar(progressColors)
 
@@ -63,6 +69,16 @@ class SummaryActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun handleMultiplayerResult(currentScore: Int, opponentScore: Int, total: Int) {
+        val resultText = when {
+            currentScore > opponentScore -> "WYGRAŁEŚ! 🏆 (Przeciwnik: $opponentScore)"
+            currentScore < opponentScore -> "PRZEGRAŁEŚ... 💀 (Przeciwnik: $opponentScore)"
+            else -> "REMIS! 🤝 (Przeciwnik: $opponentScore)"
+        }
+        binding.tvBestScore.text = resultText
+        binding.tvBestScore.setTextColor(if (currentScore >= opponentScore) 0xFF4CAF50.toInt() else 0xFFF44336.toInt())
     }
 
     private fun handleBestScore(currentScore: Int, currentTotal: Int) {
