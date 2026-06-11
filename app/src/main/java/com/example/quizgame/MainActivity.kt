@@ -18,6 +18,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private var settingsDialog: androidx.appcompat.app.AlertDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Apply theme before super.onCreate to avoid recreation if possible
@@ -47,6 +48,17 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSettings.setOnClickListener {
             showSettingsDialog()
+        }
+
+        if (savedInstanceState?.getBoolean("SETTINGS_OPEN") == true) {
+            showSettingsDialog()
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (settingsDialog?.isShowing == true) {
+            outState.putBoolean("SETTINGS_OPEN", true)
         }
     }
 
@@ -84,10 +96,11 @@ class MainActivity : AppCompatActivity() {
         layout.addView(themeSwitch)
         layout.addView(soundSwitch)
 
-        MaterialAlertDialogBuilder(this)
+        settingsDialog = MaterialAlertDialogBuilder(this)
             .setTitle("Ustawienia")
             .setView(layout)
             .setPositiveButton("Zamknij", null)
+            .setOnDismissListener { settingsDialog = null }
             .show()
     }
 
